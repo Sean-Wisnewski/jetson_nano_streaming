@@ -40,7 +40,7 @@ def encode_frame():
                 continue
             return_key, encoded_image = cv2.imencode(".jpg", video_frame)
 
-            yield('--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encoded_image) + b'\r\n')
+            yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encoded_image) + b'\r\n')
 
 @app.route('/')
 def stream_frames():
